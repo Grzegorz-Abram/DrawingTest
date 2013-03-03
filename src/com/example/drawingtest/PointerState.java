@@ -15,10 +15,6 @@ public class PointerState {
     // Most recent coordinates.
     MotionEvent.PointerCoords mCoords = new MotionEvent.PointerCoords();
 
-    // Most recent velocity.
-    float mXVelocity;
-    float mYVelocity;
-
     public void addTrace(float x, float y) {
         int traceCapacity = mTraceX.length;
         if (mTraceCount == traceCapacity) {
