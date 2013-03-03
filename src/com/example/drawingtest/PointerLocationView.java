@@ -3,7 +3,9 @@ package com.example.drawingtest;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Cap;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -22,7 +24,9 @@ public class PointerLocationView extends View {
         setFocusable(true);
         mPathPaint = new Paint();
         mPathPaint.setAntiAlias(true);
-        mPathPaint.setARGB(255, 0, 96, 255);
+        mPathPaint.setColor(Color.RED);
+        mPathPaint.setStrokeWidth(10);
+        mPathPaint.setStrokeCap(Cap.ROUND);
 
         PointerState ps = new PointerState();
         mPointers.add(ps);
