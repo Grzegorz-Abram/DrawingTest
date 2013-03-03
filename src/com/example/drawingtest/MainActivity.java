@@ -1,23 +1,22 @@
 
 package com.example.drawingtest;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.os.Bundle;
+import android.view.WindowManager;
 
+/**
+ * Demonstrates wrapping a layout in a ScrollView.
+ */
 public class MainActivity extends Activity {
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+    protected void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        setContentView(new PointerLocationView(this));
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        // Make the screen full bright for this activity.
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.screenBrightness = 1.0f;
+        getWindow().setAttributes(lp);
     }
-
 }
