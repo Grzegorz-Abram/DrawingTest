@@ -10,7 +10,6 @@ import android.view.View;
 import java.util.ArrayList;
 
 public class PointerLocationView extends View {
-    private final Paint mPaint;
     private final Paint mPathPaint;
     private boolean mCurDown;
     private int mCurNumPointers;
@@ -21,16 +20,9 @@ public class PointerLocationView extends View {
     public PointerLocationView(Context c) {
         super(c);
         setFocusable(true);
-        mPaint = new Paint();
-        mPaint.setAntiAlias(true);
-        mPaint.setARGB(255, 255, 255, 255);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(2);
         mPathPaint = new Paint();
-        mPathPaint.setAntiAlias(false);
+        mPathPaint.setAntiAlias(true);
         mPathPaint.setARGB(255, 0, 96, 255);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(1);
 
         PointerState ps = new PointerState();
         mPointers.add(ps);
@@ -134,7 +126,6 @@ public class PointerLocationView extends View {
                 final int N = ps.mTraceCount;
                 float lastX = 0, lastY = 0;
                 boolean haveLast = false;
-                mPaint.setARGB(255, 128, 255, 255);
                 for (int i = 0; i < N; i++) {
                     float x = ps.mTraceX[i];
                     float y = ps.mTraceY[i];
@@ -144,7 +135,6 @@ public class PointerLocationView extends View {
                     }
                     if (haveLast) {
                         canvas.drawLine(lastX, lastY, x, y, mPathPaint);
-                        canvas.drawPoint(lastX, lastY, mPaint);
                     }
                     lastX = x;
                     lastY = y;
