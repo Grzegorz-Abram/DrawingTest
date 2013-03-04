@@ -9,9 +9,6 @@ public class PointerState {
     float[] mTraceY = new float[32];
     int mTraceCount;
 
-    // True if the pointer is down.
-    boolean mCurDown;
-
     // Most recent coordinates.
     MotionEvent.PointerCoords mCoords = new MotionEvent.PointerCoords();
 
